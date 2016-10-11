@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -J chr08_split
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o chr08_split_%j.out
+#SBATCH -e chr08_split_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+WORKDIR="/lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/JAPONICA/POST"
+
+cd ${WORKDIR}
+
+/lustre1/deng_pkuhpc/slh_RICE_data/SOFTWARE/BIN/extract_BIALLELIC_SNPs.sh chr08_joint_genotyping_japonica.vcf.gz
+ 

@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J model
+#SBATCH -p fat4way
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o model_%j.out
+#SBATCH -e model_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengf4w
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/RUFIPOGON
+
+for i in *.fastq.bz2_output_raw_snps_indels.g.vcf.gz ;do tabix -p vcf ${i};done
