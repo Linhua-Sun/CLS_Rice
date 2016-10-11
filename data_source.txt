@@ -1,0 +1,14 @@
+### IND DATA
+
+1. `/lustre1/deng_pkuhpc/slh_RICE_data/LAST_1K/IND/ind_177_list.txt.g.vcf.gz`
+2. `/lustre1/deng_pkuhpc/slh_RICE_data/BU2016-09-26/IND_23/IND_23.g.vcf.gz `
+3. `/lustre1/deng_pkuhpc/slh_RICE_data/DATA_PPP/RE_Indica_G`
+4.
+`/lustre1/deng_pkuhpc/New_SLH_DATA/Transfered_from_3server/local_sever_95_jap.g.vcf.gz
+`
+
+### JAP DATA:
+1. `/lustre1/deng_pkuhpc/slh_RICE_data/BU2016-09-26/JAP_3`
+2. `/lustre1/deng_pkuhpc/slh_RICE_data/DATA_PPP/RE_Jap_G`
+3. `/lustre1/deng_pkuhpc/slh_RICE_data/LAST_1K/JAP`
+4. `/lustre1/deng_pkuhpc/New_SLH_DATA/Transfered_from_3server/again`
