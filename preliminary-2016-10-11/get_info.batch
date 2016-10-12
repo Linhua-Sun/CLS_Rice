@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J get_info
+#SBATCH -p fat4way
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o get_info_%j.out
+#SBATCH -e get_info_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengf4w
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/preliminary-2016-10-11
+
+for i in *.gz;do get_info_format.sh ${i};done 

@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -J vcf2ped
+#SBATCH -p fat4way
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o vcf2ped_%j.out
+#SBATCH -e vcf2ped_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengf4w
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/preliminary-2016-10-11
+
+for i in *_BIALLELIC_SNPs.vcf.gz
+do
+	ID=$(basename ${i} .vcf.gz)
+	vcftools --gzvcf ${i} --plink --out ${ID}_from_vcftools
+done
