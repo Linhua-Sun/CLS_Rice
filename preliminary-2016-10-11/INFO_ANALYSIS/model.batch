@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -J indica
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o indica_%j.out
+#SBATCH -e indica_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+cd  /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/preliminary-2016-10-11/INFO_ANALYSIS
+
+for i in *indica*.txt 
+do
+	png_gen_den.R ${i}
+done
