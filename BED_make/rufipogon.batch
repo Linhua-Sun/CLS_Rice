@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -J plink_vcf2ped
+#SBATCH -p fat4way
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o plink_vcf2ped_%j.out
+#SBATCH -e plink_vcf2ped_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengf4w
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/BED_make
+
+for i in chr*_joint_genotyping_rufipogon.vcf.gz_BIALLELIC_SNPs.vcf.gz 
+do
+	ID=$(basename ${i} .vcf.gz)
+	plink --vcf ${i} --make-bed --out ${ID}_from_plink
+done
