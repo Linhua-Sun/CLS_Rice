@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH -J merge
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=10
+#SBATCH -o merge_%j.out
+#SBATCH -e merge_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/LAST_
+
+cat ID_ae | while read line
+do
+	echo "tabix this ${line}"
+	tabix -p vcf "${line}"
+done
+
+sample_list=$(cat ID_ae|sed "s/^/   --variant /g;s/$/ /g")
+
+java -Xmx32G -jar /lustre1/deng_pkuhpc/slh_RICE_data/SOFTWARE/GATK/GenomeAnalysisTK.jar \
+       	-T CombineGVCFs \
+       	-R /lustre1/deng_pkuhpc/slh_RICE_data/REFERENCE_GENOME/REF/IRGSP-1.0_genome.fasta \
+       	${sample_list} \
+       	-o LAST1K_ID_ae.g.vcf.gz > LAST1K_ID_ae.log 2>&1
