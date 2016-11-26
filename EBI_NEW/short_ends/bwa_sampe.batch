@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -J bwa_aln
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o bwa_aln_%j.out
+#SBATCH -e bwa_aln_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW/short_ends
+
+REF="/lustre1/deng_pkuhpc/slh_RICE_data/REFERENCE_GENOME/REF/IRGSP-1.0_genome.fasta"
+
+bwa sampe ${REF} trimed_SRR1264538_1.fastq.gz.sai trimed_SRR1264538_2.fastq.gz.sai  trimed_SRR1264538_1.fastq.gz trimed_SRR1264538_2.fastq.gz > trimed_SRR1264538.sam

@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J GATK
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=20
+#SBATCH -o GATK_%j.out
+#SBATCH -e GATK_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+sh /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW/Long_reads/3K_GATK_final_cns.sh /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW/Long_reads/SRR1264536

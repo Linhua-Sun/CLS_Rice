@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J chr07_joint_genotyping
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o chr07_joint_genotyping_%j.out
+#SBATCH -e chr07_joint_genotyping_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW/PROBLEM
+
+gzip trimed_SRR1264538_1.fastq

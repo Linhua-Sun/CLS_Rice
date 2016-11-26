@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J bwa_aln
+#SBATCH -p cn-short
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=20
+#SBATCH -o bwa_aln_%j.out
+#SBATCH -e bwa_aln_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcns
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW/short_ends/SRX809898
+
+sh mapping.sh SRR1712979_1.fastq.gz 

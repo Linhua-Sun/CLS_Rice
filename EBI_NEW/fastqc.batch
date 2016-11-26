@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -J chr07_joint_genotyping
+#SBATCH -p cn-long
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o chr07_joint_genotyping_%j.out
+#SBATCH -e chr07_joint_genotyping_%j.err
+#SBATCH --no-requeue
+#SBATCH -A deng_g1
+#SBATCH --qos=dengcnl
+
+source ~/.bash_profile
+
+cd /lustre1/deng_pkuhpc/slh_RICE_data/Hang-2016-10-06/EBI_NEW
+
+fastqc SRR1264536_1.fastq.gz  SRR1264537_2.fastq.gz  SRR1264539_1.fastq.gz  SRR1712968_2.fastq.gz  SRR1712970_1.fastq.gz  SRR1712979_2.fastq.gz  SRR1712981_1.fastq.gz  SRR1997912_2.fastq.gz
+fastqc SRR1264536_2.fastq.gz  SRR1264538_1.fastq.gz  SRR1264539_2.fastq.gz  SRR1712969_1.fastq.gz  SRR1712970_2.fastq.gz  SRR1712980_1.fastq.gz  SRR1712981_2.fastq.gz  SRR1997915_1.fastq.gz
+fastqc SRR1264537_1.fastq.gz  SRR1264538_2.fastq.gz  SRR1712968_1.fastq.gz  SRR1712969_2.fastq.gz  SRR1712979_1.fastq.gz  SRR1712980_2.fastq.gz  SRR1997912_1.fastq.gz  SRR1997915_2.fastq.gz
